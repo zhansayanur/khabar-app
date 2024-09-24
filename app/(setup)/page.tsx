@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { initialProfile } from "@/lib/initial-profile";
 import { db } from "@/lib/db";
+import { InittialModal } from "@/components/modals/initial-modal";
 
 const SetupPage = async() => {
     const profile = await initialProfile();
@@ -21,8 +22,8 @@ const SetupPage = async() => {
         return redirect(`/servers/${server.id}`); // Redirect to the specific server's page based on its ID
     }
 
-    // If no server is found, display a message prompting the user to create a new server
-    return <div>Create a Server</div>;
+    // If no server is found
+    return <InittialModal />;
 }
 
 export default SetupPage;
