@@ -4,10 +4,53 @@ import { Open_Sans } from "next/font/google";
 import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
+import { enUS } from '@clerk/localizations'
+import { start } from "repl";
+import { title } from "process";
 
 const font = Open_Sans({
   subsets: ['latin']
 });
+
+const localization = {
+  ...enUS, // Подключаем базовую русскую локализацию
+  signUp: {
+    start: {
+      title: 'Жаңа аккаунт',
+      subtitle: '{{applicationName}} жалғастыру үшін тіркелу керек',
+      actionText: 'Аккаунт бар ма?',
+      actionLink: 'Кіру',
+    },
+    emailLink: {
+      title: 'Поштаңызды растаңыз',
+      subtitle: '{{applicationName}} жалғастыру үшін',
+      resendButton: 'Хат алмадыңыз ба? Қайта жіберу',
+    },
+  },
+
+  dividerText: 'немесе',
+  formFieldLabel__username: 'Пайдаланушы аты',
+  formFieldLabel__emailAddress: 'Пошта',
+  formFieldInputPlaceholder__emailAddress: 'Поштаңызды енгізіңіз',
+  formFieldLabel__password: 'Құпия сөз',
+  formFieldInputPlaceholder__password: 'Құпия сөзді енгізіңіз',
+  formButtonPrimary: 'Жалғастыру',
+  formFieldLabel__emailAddress_username: 'Пошта немесе пайдаланушы аты',
+  formFieldInputPlaceholder__emailAddress_username: 'Пошта немесе пайдаланушы атын енгізіңіз',
+  socialButtonsBlockButton: '{{provider|titleize}} арқылы кіру',
+  form_param_format_invalid: 'Енгізілген сөз қате форматта. Тексеріп, түзетіңіз.',
+
+  signIn: {
+    start: {
+      actionLink: 'Тіркелу',
+      actionText: 'Аккаунт жоқ па?',
+      subtitle: 'Қош келдіңіз! Жалғастыру үшін аккаунтыңызға кіріңіз',
+      subtitleCombined: undefined,
+      title: '{{applicationName}} кіру',
+    },
+  }
+};
+
 
 export const metadata: Metadata = {
   title: "Khabar App",
@@ -20,11 +63,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider localization={localization} >
       <html lang="en" suppressHydrationWarning>
         <body className={cn(
           font.className,
-          "bg-white dark:bg-[#313338]"
+          "bg-white dark:bg-[#0F172B]"
         )}>
           <ThemeProvider
             attribute="class"
@@ -34,6 +77,7 @@ export default function RootLayout({
           >
             {children}
           </ThemeProvider>
+
         </body>
       </html>
     </ClerkProvider>
