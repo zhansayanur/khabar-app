@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect, useState } from "react";
@@ -24,6 +25,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -36,6 +38,8 @@ const formSchema = z.object({
 
 export const InittialModal = () => {
     const [isMounted, setIsMounted] = useState(false);
+
+    const router = useRouter();
 
     useEffect(() => {
         setIsMounted(true);
@@ -52,7 +56,15 @@ export const InittialModal = () => {
     const isLoading = form.formState.isSubmitting;
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        console.log(values);
+        try {
+            await axios.post("/api/servers", values);
+
+            form.reset();
+            router.refresh();
+            window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     if (!isMounted){
@@ -67,7 +79,7 @@ export const InittialModal = () => {
                         Серверіңізді баптаңыз
                     </DialogTitle>
                     <DialogDescription className="text-left text-slate-500">
-                        Серверіңізге аты мен суретің қойыңыз. Оны кейінірек өзгерте аласыз.
+                        Серверіңізге аты мен суретін қойыңыз. Оны кейінірек өзгерте аласыз.
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
