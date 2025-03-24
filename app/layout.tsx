@@ -1,19 +1,21 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import { ClerkProvider } from '@clerk/nextjs'
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ClerkProvider } from '@clerk/nextjs';
+import { enUS } from '@clerk/localizations';
+
 import { cn } from "@/lib/utils";
-import { enUS } from '@clerk/localizations'
-import { start } from "repl";
-import { title } from "process";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ModalProvider } from "@/components/providers/modal-provider";
+
+
 
 const font = Open_Sans({
   subsets: ['latin']
 });
 
 const localization = {
-  ...enUS, // Подключаем базовую русскую локализацию
+  ...enUS, 
   signUp: {
     start: {
       title: 'Жаңа аккаунт',
@@ -75,6 +77,7 @@ export default function RootLayout({
             enableSystem={false}
             storageKey="khabar-theme"
           >
+            <ModalProvider />
             {children}
           </ThemeProvider>
 
