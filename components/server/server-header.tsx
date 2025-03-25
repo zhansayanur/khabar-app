@@ -54,7 +54,10 @@ export const ServerHeader = ({
                     </DropdownMenuItem>
                 )}
                 {isAdmin && (
-                    <DropdownMenuItem className="dark:hover:bg-orange-400/10 px-3 py-2 text-sm cursor-pointer">
+                    <DropdownMenuItem 
+                        onClick={() => onOpen("editServer", { server })}
+                        className="dark:hover:bg-orange-400/10 px-3 py-2 text-sm cursor-pointer"
+                    >
                         Серверді Баптау
                         <Settings className="h-4 w-4 ml-auto" />
                     </DropdownMenuItem>
