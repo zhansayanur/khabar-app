@@ -63,7 +63,10 @@ export const ServerHeader = ({
                     </DropdownMenuItem>
                 )}
                 {isAdmin && (
-                    <DropdownMenuItem className="dark:hover:bg-orange-400/10 px-3 py-2 text-sm cursor-pointer">
+                    <DropdownMenuItem 
+                        onClick={() => onOpen("members", { server })}
+                        className="dark:hover:bg-orange-400/10 px-3 py-2 text-sm cursor-pointer"
+                    >
                         Қатысушыларды Басқару
                         <User className="h-4 w-4 ml-auto" />
                     </DropdownMenuItem>
@@ -78,13 +81,13 @@ export const ServerHeader = ({
                     <DropdownMenuSeparator className="dark:bg-slate-800" />
                 )}
                 {isAdmin && (
-                    <DropdownMenuItem className="text-rose-500 dark:hover:bg-orange-400/10 px-3 py-2 text-sm cursor-pointer">
+                    <DropdownMenuItem className="text-rose-500 dark:hover:bg-rose-500 dark:hover:text-neutral-100/90 px-3 py-2 text-sm cursor-pointer">
                         Серверді Жою
                         <Trash className="h-4 w-4 ml-auto" />
                     </DropdownMenuItem>
                 )}
                 {!isAdmin && (
-                    <DropdownMenuItem className="text-rose-500 dark:hover:bg-orange-400/10 px-3 py-2 text-sm cursor-pointer">
+                    <DropdownMenuItem className="text-rose-500 dark:hover:bg-rose-500 dark:hover:text-neutral-100/90 px-3 py-2 text-sm cursor-pointer">
                         Серверден Шығу
                         <LogOut className="h-4 w-4 ml-auto" />
                     </DropdownMenuItem>
