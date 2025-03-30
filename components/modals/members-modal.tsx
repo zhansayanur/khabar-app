@@ -124,15 +124,16 @@ export const MembersModal = () => {
                                         <DropdownMenuTrigger>
                                             <MoreVertical className="h-4 w-4 text-slate-500" />
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent side="left">
+                                        <DropdownMenuContent side="left" className="text-white dark:bg-slate-950 dark:text-neutral-300 dark:border-slate-900">
                                             <DropdownMenuSub>
-                                                <DropdownMenuSubTrigger className="flex items-center">
+                                                <DropdownMenuSubTrigger className="flex items-center dark:hover:bg-orange-400/20">
                                                     <ShieldQuestion className="w-4 h-4 mr-2" />
                                                     <span>Рөл</span>
                                                 </DropdownMenuSubTrigger>
                                                 <DropdownMenuPortal>
-                                                    <DropdownMenuSubContent>
+                                                    <DropdownMenuSubContent className="text-white dark:bg-slate-950 dark:text-neutral-300 dark:border-slate-900">
                                                         <DropdownMenuItem
+                                                            className="dark:hover:bg-orange-400/20" 
                                                             onClick={() => onRoleChange(member.id, "GUEST")}
                                                         >
                                                             <Shield className="w-4 h-4 mr-2" />
@@ -142,6 +143,7 @@ export const MembersModal = () => {
                                                             )}
                                                         </DropdownMenuItem>
                                                         <DropdownMenuItem
+                                                            className="dark:hover:bg-orange-400/20"
                                                             onClick={() => onRoleChange(member.id, "MODERATOR")}
                                                         >
                                                             <ShieldCheck className="w-4 h-4 mr-2" />
@@ -153,8 +155,8 @@ export const MembersModal = () => {
                                                     </DropdownMenuSubContent>
                                                 </DropdownMenuPortal>
                                             </DropdownMenuSub>
-                                            <DropdownMenuSeparator />
-                                            <DropdownMenuItem onClick={() => onKick(member.id)}>
+                                            <DropdownMenuSeparator className="dark:bg-slate-800" />
+                                            <DropdownMenuItem className="dark:hover:bg-orange-400/20" onClick={() => onKick(member.id)}>
                                                 <Gavel className="h-4 w-4 mr-2" />
                                                 Шығару
                                             </DropdownMenuItem>

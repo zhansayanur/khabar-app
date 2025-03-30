@@ -21,7 +21,7 @@ export async function POST(req: Request) {
                 inviteCode: uuidv4(),
                 channels: {
                     create: [
-                        { name: "басты чат", profileId: profile.id }
+                        { name: "негізгі-арна", profileId: profile.id }
                     ]
                 },
                 members: {
