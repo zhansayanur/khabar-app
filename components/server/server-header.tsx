@@ -84,13 +84,19 @@ export const ServerHeader = ({
                     <DropdownMenuSeparator className="dark:bg-slate-800" />
                 )}
                 {isAdmin && (
-                    <DropdownMenuItem className="text-rose-500 dark:hover:bg-rose-500 dark:hover:text-neutral-100/90 px-3 py-2 text-sm cursor-pointer">
+                    <DropdownMenuItem 
+                        onClick={() => onOpen("deleteServer", { server })}
+                        className="text-rose-500 dark:hover:bg-rose-500 dark:hover:text-neutral-100/90 px-3 py-2 text-sm cursor-pointer"
+                    >
                         Серверді Жою
                         <Trash className="h-4 w-4 ml-auto" />
                     </DropdownMenuItem>
                 )}
                 {!isAdmin && (
-                    <DropdownMenuItem className="text-rose-500 dark:hover:bg-rose-500 dark:hover:text-neutral-100/90 px-3 py-2 text-sm cursor-pointer">
+                    <DropdownMenuItem 
+                        onClick={() => onOpen("leaveServer", { server })}
+                        className="text-rose-500 dark:hover:bg-rose-500 dark:hover:text-neutral-100/90 px-3 py-2 text-sm cursor-pointer"
+                    >
                         Серверден Шығу
                         <LogOut className="h-4 w-4 ml-auto" />
                     </DropdownMenuItem>
