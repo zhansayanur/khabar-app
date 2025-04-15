@@ -42,7 +42,7 @@ import qs from "query-string";
 
 const roleIconMap = {
     "GUEST": null,
-    "MODERATOR": <ShieldCheck className="h-4 w-4 ml-2 text-blue-500" />,
+    "MODERATOR": <ShieldCheck className="h-4 w-4 ml-2 text-teal-500" />,
     "ADMIN": <ShieldAlert className="h-4 w-4 text-orange-500" />,
 };
   
