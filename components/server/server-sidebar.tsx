@@ -13,6 +13,10 @@ import {
 import { ServerHeader } from "./server-header";
 import { ServerSearch } from "./server-search";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import { ServerSection } from "./server-section";
+import { ServerChannel } from "./server-channel";
+import { ServerMember } from "./server-member";
 
 interface ServerSidebarProps {
     serverId: string;
@@ -84,7 +88,7 @@ export const ServerSidebar = async ({
                     <ServerSearch 
                      data={[
                         {
-                          label: "Мәтін арналары",
+                          label: "Мәтін арналар",
                           type: "channel",
                           data: textChannels?.map((channel) => ({
                             icon: iconMap[channel.type],
@@ -122,7 +126,92 @@ export const ServerSidebar = async ({
                       ]}
                     />
                 </div>
+                <Separator className="bg-slate-200 dark:bg-slate-700 rounded-md my-2" />
+                {!!textChannels?.length && (
+                    <div className="mb-2 ">
+                        <ServerSection
+                        sectionType="channels"
+                        channelType={ChannelType.TEXT}
+                        role={role}
+                        label="Мәтін арна"
+                    /> 
+                    <div className="space-y-[2px]">
+                    {textChannels.map((channel) => (
+                        <ServerChannel
+                        key={channel.id}
+                        channel={channel}
+                        role={role}
+                        server={server}
+                    />
+                    ))}
+                    </div>
+                </div>
+                )}
+                
+                {!!audioChannels?.length && (
+                    <div className="mb-2 ">
+                        <ServerSection
+                        sectionType="channels"
+                        channelType={ChannelType.AUDIO}
+                        role={role}
+                        label="Аудио арна"
+                    />
+                    <div className="space-y-[2px]">
+                    {audioChannels.map((channel) => (
+                        <ServerChannel
+                        key={channel.id}
+                        channel={channel}
+                        role={role}
+                        server={server}
+                    />
+                    ))}
+                    </div>
+                </div>
+                )}
+
+                {!!videoChannels?.length && (
+                    <div className="mb-2 ">
+                        <ServerSection
+                        sectionType="channels"
+                        channelType={ChannelType.VIDEO}
+                        role={role}
+                        label="Бейне арна"
+                    />
+                    <div className="space-y-[2px]">
+                    {videoChannels.map((channel) => (
+                        <ServerChannel
+                        key={channel.id}
+                        channel={channel}
+                        role={role}
+                        server={server}
+                    />
+                    ))}
+                    </div>
+                </div>
+                )}
+
+                {!!members?.length && (
+                    <div className="mb-2 ">
+                        <ServerSection
+                        sectionType="members"
+                        role={role}
+                        label="Қатысушылар"
+                        server={server}
+                    />
+                    <div className="space-y-[2px]">
+                    {members.map((member) => (
+                        <ServerMember 
+                        key={member.id} 
+                        member={member} 
+                        server={server}
+                        />
+                    ))}
+                    </div>
+                </div>
+                )}
             </ScrollArea>
         </div>
     )
 }
+
+export default ServerSidebar;
