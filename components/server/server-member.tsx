@@ -43,7 +43,7 @@ export const ServerMember = ({ member, server }: ServerMemberProps) => {
         <p
           className={cn(
             "font-semibold text-left text-sm text-slate-500 group-hover:text-slate-600 dark:text-slate-400 dark:group-hover:text-slate-300 transition",
-            params?.channelId === member.id &&
+            params?.memberId === member.id &&
               "text-primary dark:text-slate-200 dark:group-hover:text-white"
           )}
         >

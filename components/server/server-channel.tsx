@@ -33,7 +33,7 @@ export const ServerChannel = ({
         router.push(`/servers/${params?.serverId}/channels/${channel.id}`);
     };
     
-      const onAction = (e: React.MouseEvent, action: ModalType) => {
+    const onAction = (e: React.MouseEvent, action: ModalType) => {
         e.stopPropagation();
         onOpen(action, { server, channel });
     };
