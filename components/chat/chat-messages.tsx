@@ -54,7 +54,7 @@ export const ChatMessages = ({
           <div className="flex flex-col flex-1 justify-center items-center">
             <Loader2 className="h-7 w-7 text-slate-500 animate-spin my-4" />
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Хабарлмалар жүктелуде...
+              Хабарламалар жүктелуде...
             </p>
           </div>
         );
