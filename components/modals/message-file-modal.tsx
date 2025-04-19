@@ -78,10 +78,10 @@ export const MessageFileModal = () => {
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-left font-bold">
-                        Файл қосу
+                        Сурет қосу
                     </DialogTitle>
                     <DialogDescription className="text-left text-slate-500">
-                        Файлды хабарлама ретінде жіберіңіз.
+                        Суретті хабарлама ретінде жіберіңіз.
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
