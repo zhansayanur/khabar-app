@@ -76,7 +76,7 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
                         className="px-14 py-6 bg-slate-200/90 dark:bg-slate-700/75 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-slate-600 dark:text-slate-200 dark:placeholder:text-slate-400"
                         placeholder={`${
                         type === "conversation" ? name : "#" + name
-                        } ішінде жазу`}
+                        } жазу`}
                         {...field}
                         ref={refi}
                     />

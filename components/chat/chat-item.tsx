@@ -40,7 +40,7 @@ const roleIconMap = {
 };
   
   const roleColorMap = {
-    GUEST: "text-slate-500",
+    GUEST: "text-slate-200",
     MODERATOR: "text-teal-500",
     ADMIN: "text-orange-500",
 };
