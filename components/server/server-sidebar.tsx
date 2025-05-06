@@ -106,7 +106,7 @@ export const ServerSidebar = async ({
                           })),
                         },
                         {
-                          label: "Видео арналар",
+                          label: "Бейне арналар",
                           type: "channel",
                           data: videoChannels?.map((channel) => ({
                             icon: iconMap[channel.type],
